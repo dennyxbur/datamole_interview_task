@@ -1,0 +1,20 @@
+// C4 Model - Level 1: GitHub Event Streaming and API
+digraph {
+    rankdir=LR size=10
+    GitHub [label="GitHub API" fillcolor=lightgray shape=box style=filled]
+    User [label="API Consumer / User" fillcolor=lightgray shape=box style=filled]
+    Producer [label="Producer\n(Stream from GitHub)" fillcolor=lightblue shape=component style=filled]
+    Kafka [label="Kafka + Zookeeper" fillcolor=lightblue shape=component style=filled]
+    Consumer [label="Consumer\n(Raw data ingestion)" fillcolor=lightblue shape=component style=filled]
+    Cleaner [label="Cleaner\n(Spark-based processing)" fillcolor=lightblue shape=component style=filled]
+    DeltaLake [label="Delta Lake\n(Local disk)" fillcolor=lightyellow shape=cylinder style=filled]
+    API [label="FastAPI\n(REST API)" fillcolor=lightblue shape=component style=filled]
+    GitHub -> Producer [label="Fetch events"]
+    Producer -> Kafka [label="Stream events"]
+    Kafka -> Consumer [label="Deliver raw data"]
+    Consumer -> DeltaLake [label="Write raw data"]
+    DeltaLake -> Cleaner [label="Read raw data"]
+    Cleaner -> DeltaLake [label="Write cleaned data"]
+    DeltaLake -> API [label="Query metrics"]
+    API -> User [label="Serve REST endpoints"]
+}

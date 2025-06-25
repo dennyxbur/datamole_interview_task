@@ -15,6 +15,14 @@ and serves metrics through a FastAPI REST API.
 - **api**: Serves REST endpoints
 - **Dockerized** with support for `docker-compose`
 
+## External Systems
+
+- GitHub API (data source)
+- FastAPI clients (data consumers)
+
+## C4 Model Diagram - Level 1
+![Context Diagram](c4diagram/graph.png)
+
 ## Run the stack
 Create .env file with GITHUB_TOKEN to enable more request then given by default.
 (.env is listed in .gitignore file).
