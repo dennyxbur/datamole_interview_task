@@ -1,0 +1,6 @@
+fastapi
+uvicorn
+pyspark
+delta-spark
+matplotlib
+pandas>=2.0.0

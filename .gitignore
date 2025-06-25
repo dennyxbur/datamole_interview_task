@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+*.log
+.env
+delta-data/
+raw_github_events/
+clean_data_events/
+.checkpoints/
+venv
+.idea
